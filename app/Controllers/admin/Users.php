@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\admin;
 
-class Coba extends BaseController
+use App\Controllers\BaseController;
+
+class Users extends BaseController
 {
     public function index()
     {
-        echo "Ini controller Coba method index";
+        echo "Ini controller Users method index yang ada di dalam folder admin";
     }
 
     public function about($nama = "", $umur = 0)
