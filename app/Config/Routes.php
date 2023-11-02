@@ -26,3 +26,4 @@ $routes->get('/Users/produk/(:any)', 'admin\Users::produk/$1'); // akses control
 $routes->get('/', 'Pages::index');
 $routes->get('/Pages', 'Pages::index');
 $routes->get('/Pages/about', 'Pages::about');
+$routes->get('/Pages/contact', 'Pages::contact');
