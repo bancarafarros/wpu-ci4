@@ -27,3 +27,5 @@ $routes->get('/', 'Pages::index');
 $routes->get('/Pages', 'Pages::index');
 $routes->get('/Pages/about', 'Pages::about');
 $routes->get('/Pages/contact', 'Pages::contact');
+
+$routes->get('/Komik/index', 'Komik::index');
