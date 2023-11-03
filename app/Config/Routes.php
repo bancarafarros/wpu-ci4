@@ -29,3 +29,6 @@ $routes->get('/Pages/about', 'Pages::about');
 $routes->get('/Pages/contact', 'Pages::contact');
 
 $routes->get('/Komik/index', 'Komik::index');
+$routes->get('/Komik', 'Komik::index');
+
+$routes->get('/komik/(:segment)', 'Komik::detail/$1');
