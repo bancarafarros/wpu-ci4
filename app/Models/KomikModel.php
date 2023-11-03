@@ -11,6 +11,8 @@ class KomikModel extends Model
     // protected $primaryKey = 'id'; // dikomen karena sama kayak di file induk model
     protected $useTimestamps = true;
 
+    protected $allowedFields = ['judul', 'slug', 'penulis', 'penerbit', 'sampul'];
+
     public function getKomik($slug = false)
     {
         if ($slug == false) {
@@ -19,4 +21,8 @@ class KomikModel extends Model
 
         return $this->where(['slug' => $slug])->first();
     }
+
+    // public function save($data)
+    // {
+    // }
 }

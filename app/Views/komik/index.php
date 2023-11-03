@@ -4,7 +4,14 @@
 <div class="container">
     <div class="row">
         <div class="col">
+            <a href="<?= base_url('Komik/create'); ?>" class="btn btn-primary mt-3">Tambah Data Komik</a>
             <h1 class="mt-2">Daftar Komik</h1>
+            <?php if (session()->getFlashdata('message')) : ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <?= session()->getFlashdata('message'); ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif; ?>
             <table class="table">
                 <thead>
                     <tr>
@@ -22,7 +29,7 @@
                             <td><img src="/img/<?= $k['sampul']; ?>" alt="" srcset="" class="sampul"></td>
                             <td><?= $k['judul']; ?></td>
                             <td>
-                                <a href="<?= base_url('komik/' . $k['slug']); ?>" class="btn btn-success">Detail</a>
+                                <a href="<?= base_url('Komik/' . $k['slug']); ?>" class="btn btn-success">Detail</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

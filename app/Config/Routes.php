@@ -28,7 +28,13 @@ $routes->get('/Pages', 'Pages::index');
 $routes->get('/Pages/about', 'Pages::about');
 $routes->get('/Pages/contact', 'Pages::contact');
 
+// daftar komik
 $routes->get('/Komik/index', 'Komik::index');
 $routes->get('/Komik', 'Komik::index');
 
-$routes->get('/komik/(:segment)', 'Komik::detail/$1');
+// create data komik
+$routes->get('/Komik/create', 'Komik::create');
+$routes->post('/Komik/save', 'Komik::save');
+
+// detail komik
+$routes->get('/Komik/(:segment)', 'Komik::detail/$1');
