@@ -117,27 +117,26 @@ class Komik extends BaseController
     public function update($id)
     {
         // cek judul
-        $komikLama = $this->komikModel->getKomik($this->request->getVar('slug'));
-        dd($komikLama);
-        if ($komikLama['judul'] == $this->request->getVar('judul')) {
-            $rule_judul = 'required';
-        } else {
-            $rule_judul = 'required|is_unique[komik.judul]';
-        }
+        // $komikLama = $this->komikModel->getKomik($this->request->getVar('slug'));
+        // if ($komikLama['judul'] == $this->request->getVar('judul')) {
+        //     $rule_judul = 'required';
+        // } else {
+        //     $rule_judul = 'required|is_unique[komik.judul]';
+        // }
 
         // validasi input
-        if (!$this->validate([
-            'judul' => [
-                'rules' => $rule_judul,
-                'errors' => [
-                    'required' => '{field} komik harus diisi',
-                    'is_unique' => '{field} komik sudah terdaftar'
-                ]
-            ]
-        ])) {
-            $validation = \Config\Services::validation(); // ngambil pesan kesalahan
-            return redirect()->to('/Komik/edit/' . $this->request->getVar('slug'))->withInput()->with('validation', $validation);
-        }
+        // if (!$this->validate([
+        //     'judul' => [
+        //         'rules' => $rule_judul,
+        //         'errors' => [
+        //             'required' => '{field} komik harus diisi',
+        //             'is_unique' => '{field} komik sudah terdaftar'
+        //         ]
+        //     ]
+        // ])) {
+        //     $validation = \Config\Services::validation(); // ngambil pesan kesalahan
+        //     return redirect()->to('/Komik/edit/' . $this->request->getVar('slug'))->withInput()->with('validation', $validation);
+        // }
 
         $slug = url_title($this->request->getVar('judul'), '-', true);
 
