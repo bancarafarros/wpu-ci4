@@ -95,4 +95,11 @@ class Komik extends BaseController
 
         return redirect()->to('/Komik');
     }
+
+    public function delete($id)
+    {
+        $this->komikModel->delete($id);
+        session()->setFlashdata('message', 'success');
+        return redirect()->to('/Komik');
+    }
 }

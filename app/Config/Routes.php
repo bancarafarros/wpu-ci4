@@ -36,5 +36,8 @@ $routes->get('/Komik', 'Komik::index');
 $routes->get('/Komik/create', 'Komik::create');
 $routes->post('/Komik/save', 'Komik::save');
 
+// delete data komik
+$routes->delete('/Komik/(:num)', 'Komik::delete/$1');
+
 // detail komik
-$routes->get('/Komik/(:segment)', 'Komik::detail/$1');
+$routes->get('/Komik/(:any)', 'Komik::detail/$1');
