@@ -45,3 +45,11 @@ $routes->post('/Komik/update/(:segment)', 'Komik::update/$1');
 
 // detail komik
 $routes->get('/Komik/(:any)', 'Komik::detail/$1');
+
+// daftar orang
+$routes->get('/Orang/index', 'Orang::index');
+$routes->get('/Orang', 'Orang::index');
+
+// cari orang
+$routes->post('/Orang/index/(:any)', 'Orang::index/$1');
+$routes->post('/Orang', 'Orang::index');
