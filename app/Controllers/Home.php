@@ -8,4 +8,10 @@ class Home extends BaseController
     {
         return view('welcome_message');
     }
+
+    public function coba()
+    {
+        echo "Hello World!";
+        echo "$this->nama";
+    }
 }
