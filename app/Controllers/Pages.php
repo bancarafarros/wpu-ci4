@@ -6,12 +6,15 @@ class Pages extends BaseController
 {
     public function index()
     {
-        // echo "Hello World!";
+        echo view('layout/header');
         return view('pages/home');
+        echo view('layout/footer');
     }
 
     public function about()
     {
+        echo view('layout/header');
         return view('pages/about');
+        echo view('layout/footer');
     }
 }
