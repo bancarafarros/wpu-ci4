@@ -26,7 +26,7 @@
     </nav>
     <!-- end of header -->
 
-    <!-- untuk memanggil 'content' yang merupakan isi halaman -->
+    <!-- untuk memanggil 'content' yang merupakan isi halaman yang berasal dari file lain-->
     <?= $this->renderSection('content'); ?>
 
     <!-- start of footer -->

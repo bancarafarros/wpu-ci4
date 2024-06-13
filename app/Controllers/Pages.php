@@ -21,4 +21,27 @@ class Pages extends BaseController
 
         return view('pages/about', $data);
     }
+
+    public function contact()
+    {
+        $data = [
+            'title' => 'Contact',
+
+            // data alamat array asosiatif
+            'alamat' => [
+                [
+                    'tipe' => 'Rumah',
+                    'alamat' => 'Jl. zzzzzzz',
+                    'kota' => 'Jekardah'
+                ],
+                [
+                    'tipe' => 'Apart',
+                    'alamat' => 'Jl. yyyyyy',
+                    'kota' => 'Jaxel'
+                ]
+            ]
+        ];
+
+        return view('pages/contact', $data);
+    }
 }

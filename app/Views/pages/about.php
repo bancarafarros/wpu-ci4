@@ -10,4 +10,4 @@
         </div>
     </div>
 </div>
-<?= $this->endSection(); ?> <!-- menandakan section 'content diakhiri -->
+<?= $this->endSection(); ?> <!-- menandakan section 'content' diakhiri -->

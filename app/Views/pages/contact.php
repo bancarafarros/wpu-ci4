@@ -5,7 +5,15 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h1>Hello World!</h1>
+            <h2>Contact Us</h2>
+
+            <?php foreach ($alamat as $a) : ?>
+                <ul>
+                    <li><?= $a['tipe']; ?></li>
+                    <li><?= $a['alamat']; ?></li>
+                    <li><?= $a['kota']; ?></li>
+                </ul>
+            <?php endforeach; ?>
         </div>
     </div>
 </div>
