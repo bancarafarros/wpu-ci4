@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+// 1 Controller 1 View
 class Pages extends BaseController
 {
     public function index()
