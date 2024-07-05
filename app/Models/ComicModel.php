@@ -10,4 +10,13 @@ class ComicModel extends Model
 {
     protected $table = 'comics'; // deklarasi table yang digunakan
     protected $useTimestamps = true; // set useTimestamps true
+
+    public function getComic($slug = false)
+    {
+        if ($slug == false) {
+            return $this->findAll(); // untuk menampilkan semua data komik di view index
+        }
+
+        return $this->where(['slug' => $slug])->first(); // untuk menampilkan salah satu data komik berdasarkan $slug
+    }
 }

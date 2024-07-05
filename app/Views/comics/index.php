@@ -23,7 +23,7 @@
                             <th scope="row"><?= $no++; ?></th>
                             <td><img src="/img/<?= $cmc['sampul']; ?>" alt="" srcset="" class="sampul"></td>
                             <td><?= $cmc['judul']; ?></td>
-                            <td><a href="" class="btn btn-sm btn-primary">Detail</a></td>
+                            <td><a href="/comic/<?= $cmc['slug']; ?>" class="btn btn-sm btn-primary">Detail</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

@@ -18,12 +18,12 @@ class Comics extends BaseController
     public function index()
     {
         // mengambil seluruh data dengan menggunakan property class dan dijadikan array dengan findAll()
-        $comic = $this->ComicModel->findAll();
+        // $comic = $this->ComicModel->findAll(); // udah diganti sama getComic() di ComicModel
         // dd($komik);
 
         $data = [
             'title' => 'Daftar Komik',
-            'comic' => $comic // persiapa mengirim data ke view
+            'comic' => $this->ComicModel->getComic() // kirim semua data komik ke view
         ];
 
         // connect db tanpa model
@@ -35,5 +35,16 @@ class Comics extends BaseController
         // }
 
         return view('comics/index', $data); // mengambalikan/memanggil view sekaligus mengirim data
+    }
+
+    public function detail($slug)
+    {
+
+        $data = [
+            'title' => 'Detail Komik',
+            'comic' => $this->ComicModel->getComic($slug) // kirim salah satu data komik berdasarkan $slug ke view
+        ];
+
+        return view('comics/detail', $data); // mengarahkan ke view detail komik
     }
 }
