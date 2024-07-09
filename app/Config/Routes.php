@@ -31,4 +31,4 @@ $routes->get('pages/about', 'Pages::about');
 $routes->get('pages/contact', 'Pages::contact');
 
 // url /comic/slug controller Comics method detail
-$routes->get('/comic/(:segment)', 'Comics::detail/$1');
+$routes->get('/comics/(:segment)', 'Comics::detail/$1');
