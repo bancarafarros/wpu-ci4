@@ -30,5 +30,6 @@ $routes->get('pages/home', 'Pages::index');
 $routes->get('pages/about', 'Pages::about');
 $routes->get('pages/contact', 'Pages::contact');
 
-// url /comic/slug controller Comics method detail
-$routes->get('/comics/(:segment)', 'Comics::detail/$1');
+$routes->get('/comics/create', 'Comics::create'); // ke halaman form tambah data
+$routes->post('/comics/insert', 'Comics::insert'); // kirim data dari form ke method insert buat insert ke database
+$routes->get('/comics/(:segment)', 'Comics::detail/$1'); // url /comic/slug controller Comics method detail

@@ -8,8 +8,9 @@ use CodeIgniter\Model;
 // nama model sebaiknya tunggal/singular
 class ComicModel extends Model
 {
-    protected $table = 'comics'; // deklarasi table yang digunakan
-    protected $useTimestamps = true; // set useTimestamps true
+    protected $table = 'comics';                                                   // deklarasi table yang digunakan
+    protected $useTimestamps = true;                                               // set useTimestamps true
+    protected $allowedFields = ['judul', 'slug', 'penulis', 'penerbit', 'sampul']; // deklarasi fields yang boleh diisi
 
     public function getComic($slug = false)
     {

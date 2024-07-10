@@ -5,7 +5,13 @@
 <div class="container">
     <div class="row">
         <div class="col">
+            <?php if (session()->getFlashdata('message')) : ?>
+                <div class="alert alert-success" role="alert">
+                    <?= session()->getFlashdata('message'); ?>
+                </div>
+            <?php endif; ?>
             <h1 class="mt-2">Daftar Komik</h1>
+            <a href="/comics/create" class="btn btn-sm btn-primary">Tambah Data Komik</a>
             <table class="table mt-3">
                 <thead>
                     <tr>
