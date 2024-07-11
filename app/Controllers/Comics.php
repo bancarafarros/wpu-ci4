@@ -52,30 +52,50 @@ class Comics extends BaseController
         return view('comics/detail', $data); // mengarahkan ke view detail komik
     }
 
-    public function create() // halaman form tambah data komik
+    public function create() // ke halaman tambah data komik
     {
+        // session(); // udah ada di basecontroller
         $data = [
             'title' => 'Halaman Tambah Data Komik',
+            // 'validation' => \Config\Services::validation() // kirim message validation ke view
+            'validation' => session()->getFlashdata('validation') // kirim message validation ke view
         ];
 
         return view('comics/create', $data);
     }
 
-    public function insert() // insert data komik ke db
+    public function insert() // insert data ke db
     {
-        // dd($this->request->getVar());
+        // rules validation
+        $validationRules = [
+            'judul' => [                                       // kolom db
+                'rules' => 'required|is_unique[comics.judul]', // rules
+                'errors' => [                                  // error messages
+                    'required' => '{field} komik harus diisi',
+                    'is_unique' => '{field} komik sudah terdaftar'
+                ]
+            ]
+        ];
 
-        $slug = url_title($this->request->getVar('judul'), '-', true); // bikin slug pake url_title()
-        $this->ComicModel->save([                                      // run model
-            'judul' => $this->request->getVar('judul'),                // ambil data 'judul' pake getVar()
+        if (!$this->validate($validationRules)) { // cek validasi
+            return redirect()->to('/comics/create') // Mengarhkan user ke halaman /comics/create
+                ->withInput() // menyimpan data input dari permintaan sebelumnya ke dalam session
+                ->with('validation', \Config\Services::validation()); // menyimpan input tambahan dengan nama 'validasi' dan error messages ke session
+        }
+
+        $slug = url_title($this->request->getVar('judul'), '-', true); // Membuat slug dari judul
+
+        // insert data ke db
+        $this->ComicModel->save([
+            'judul' => $this->request->getVar('judul'),
             'slug' => $slug,
             'penulis' => $this->request->getVar('penulis'),
             'penerbit' => $this->request->getVar('penerbit'),
             'sampul' => $this->request->getVar('sampul')
         ]);
 
-        session()->setFlashData('message', 'Data berhasil ditambahkan!'); // session flashdata buat notifikasi
+        session()->setFlashdata('message', 'Data berhasil ditambahkan!'); // kirim notifikasi dengan flashdata
 
-        return redirect()->to('/comics');
+        return redirect()->to('/comics'); // mengarahkan ke halaman /comics
     }
 }
